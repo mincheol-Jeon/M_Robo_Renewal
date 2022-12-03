@@ -17,10 +17,10 @@ def get_db_connection():
     )
     return connection
 
-conn = get_db_connection()
-cursor = conn.cursor()
-cursor.execute('select * from cj;')
-col = cursor.description
-col_list = [col[i][0] for i in range(len(col))]
-df = pd.DataFrame(cursor.fetchall(),columns = col_list)
-print('Test')
+# conn = get_db_connection()
+# cursor = conn.cursor()
+# cursor.execute('select * from cj;')
+# col = cursor.description
+# col_list = [col[i][0] for i in range(len(col))]
+# df = pd.DataFrame(cursor.fetchall(),columns = col_list)
+# print('Test')
