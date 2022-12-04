@@ -11,7 +11,7 @@ def get_db_connection():
         host = config['db']['host'],
         user = config['db']['user'],
         database = config['db']['database'],
-        port = 3306,
+        port = config['db']['port'],
         password = config['db']['password'],   
         autocommit = False
     )
