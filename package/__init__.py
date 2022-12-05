@@ -3,10 +3,13 @@ import mysql.connector
 import json
 import pandas as pd
 
-f  = open("config.json")
-config = json.load(f)
+def get_db_config():
+    f  = open("config.json")
+    config_json = json.load(f)
+    
+    return config_json
 
-def get_db_connection():
+def get_db_connection(config):
     connection = pymysql.connect(
         host = config['db']['host'],
         user = config['db']['user'],
