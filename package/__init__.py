@@ -50,9 +50,13 @@ def index():
 @app.route('/test')
 def test_page():
     param = input()
-    res = fetch(query = ''' select corp_name,corp_code,stock_code,url,rcept_dt
+    res = fetch(query = ''' 
+                            select corp_name, corp_code, stock_code, url, rcept_dt
                             from tmp 
-                            where corp_name = "{}" order by rcept_dt limit 5;'''.format(param),
+                            where corp_name = "{}" 
+                            order by rcept_dt 
+                            limit 5;
+                        '''.format(param),
                 cursor = cursor,
                 data_type = 'raw')
     return res
