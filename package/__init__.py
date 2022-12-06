@@ -2,11 +2,13 @@ import pymysql
 import mysql.connector
 import json
 import pandas as pd
+import os
+from flask import Flask
 
 def get_db_config():
     f  = open("config.json")
     config_json = json.load(f)
-    
+
     return config_json
 
 def get_db_connection(config):
@@ -20,10 +22,11 @@ def get_db_connection(config):
     )
     return connection
 
-# conn = get_db_connection()
-# cursor = conn.cursor()
-# cursor.execute('select * from cj;')
-# col = cursor.description
-# col_list = [col[i][0] for i in range(len(col))]
-# df = pd.DataFrame(cursor.fetchall(),columns = col_list)
-# print('Test')
+app = Flask(__name__)
+
+@app.route('/')
+
+def index():
+    return 'Hello Flask!'
+    
+app.run(host='0.0.0.0',port=50)
